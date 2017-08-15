@@ -1,0 +1,46 @@
+
+td {
+  border: 0px;
+  padding: 5px;
+}
+
+table {
+  border-top: 0px;
+  margin: auto;
+}
+
+table.signs{
+  margin-left: -130;
+  border-collapse: separate;
+  border-spacing: 250px 0;
+}
+
+.letter-head-pdf {
+  font-family: serif;
+  border-bottom: 1px solid black;
+}
+
+.letter-head-pdf p {
+  /*max-width: 500px;*/
+  left: 21%;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.letter-head-pdf h3 {
+  left: 7%;
+  line-height: 0.5;
+}
+
+.letter-head-pdf h4 {
+  left: 7%;
+  line-height: 0.5;
+}
+.letter-head-pdf img {
+  left: 7%;
+}
+
+.letter-body p {
+  line-height: 1;
+  margin-bottom: 0px;
+}

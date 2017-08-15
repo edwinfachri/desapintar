@@ -1,0 +1,99 @@
+
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-top: 1px solid black;
+  margin: auto;
+}
+
+img {
+    height: auto;
+    max-width: 20%;
+    height: auto;
+    width: auto\9; /* ie8 */;
+    position: absolute;
+}
+
+@media (min-width: 480px) {
+  
+  img {
+      height: auto;
+      max-width: 70%;
+      height: auto;
+      width: auto\9; /* ie8 */;
+      position: absolute;
+  }
+
+}
+@media (min-width: 768px) {
+  img {
+      height: auto;
+      max-width: 50%;
+      height: auto;
+      width: auto\9; /* ie8 */;
+      position: absolute;
+  }
+}
+
+
+
+@page {
+  size: 5.5in 8.5in;
+}
+
+@page {
+  size: A4;
+}
+
+@page :left {
+  margin-left: 3cm;
+}
+
+@page :right {
+  margin-left: 4cm;
+}
+
+@page:right{
+  @bottom-right {
+    content: counter(page);
+  }
+}
+
+@page:left{
+  @bottom-left {
+    content: counter(page);
+  }
+}
+
+@page:left{
+  @bottom-left {
+    content: "Page " counter(page) " of " counter(pages);
+  }
+}
+
+
+
+h1 {
+  page-break-before: always;
+}
+
+h1, h2, h3, h4, h5 {
+  page-break-after: avoid;
+}
+
+table, figure {
+  page-break-inside: avoid;
+}
+
+label {
+
+}
+
+@media (min-width: 1500px) and (max-width: 1600px) {
+  .letter-head-print img {
+    max-width: 100px;
+    margin-bottom: 0px;
+  }
+}
