@@ -95,6 +95,7 @@ class KetTidakMampuController extends Controller
   public function getView($id) {
     $profil_desa = ProfilDesa::first();
     $ket_tidak_mampu = KetTidakMampu::find($id);
+    $ket_tidak_mampu->kelamin = $ket_tidak_mampu->kelamin == '1'?'Laki-laki':'Perempuan';
     $this->getFormatedDate($ket_tidak_mampu);
     return view('ket_tidak_mampu.view', ['title'=>$this->title, 'data'=>$ket_tidak_mampu, 'profil_desa'=>$profil_desa]);
   }
@@ -102,6 +103,7 @@ class KetTidakMampuController extends Controller
   public function getPrint($id) {
     $profil_desa = $this->getProfilDesa();
     $ket_tidak_mampu = KetTidakMampu::find($id);
+    $ket_tidak_mampu->kelamin = $ket_tidak_mampu->kelamin == '1'?'Laki-laki':'Perempuan';
     $this->getFormatedDate($ket_tidak_mampu);
     return view('ket_tidak_mampu.print', ['title' => $this->title, 'data' => $ket_tidak_mampu, 'profil_desa'=>$profil_desa]);
   }
@@ -109,6 +111,7 @@ class KetTidakMampuController extends Controller
   public function getDownload($id) {
     $profil_desa = $this->getProfilDesa();
     $ket_tidak_mampu = KetTidakMampu::find($id);
+    $ket_tidak_mampu->kelamin = $ket_tidak_mampu->kelamin == '1'?'Laki-laki':'Perempuan';
     $this->getFormatedDate($ket_tidak_mampu);
     $pdf = PDF::loadView('ket_tidak_mampu.download', ['data'=>$ket_tidak_mampu, 'title'=>$this->title, 'profil_desa'=>$profil_desa]);
     return $pdf->download('ket_tidak_mampu.pdf');
@@ -117,6 +120,7 @@ class KetTidakMampuController extends Controller
   public function getWord($id) {
     $profil_desa = $this->getProfilDesa();
     $ket_tidak_mampu = KetTidakMampu::find($id);
+    $ket_tidak_mampu->kelamin = $ket_tidak_mampu->kelamin == '1'?'Laki-laki':'Perempuan';
     $this->getFormatedDate($ket_tidak_mampu);
 
     $phpWord = new \PhpOffice\PhpWord\PhpWord();
