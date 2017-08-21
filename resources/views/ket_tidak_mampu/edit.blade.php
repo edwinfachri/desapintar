@@ -48,10 +48,10 @@
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-3 col-lg-3">
-        {!! Form::label('nilk', 'NILK', ['class'=>'control-label']) !!}
+        {!! Form::label('nilk', 'NIK', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">
-        {!! Form::text('nilk', $data->nilk, ['id'=>'nilk', 'class'=>'form-control', 'placeholder'=>'NILK']) !!}
+        {!! Form::text('nilk', $data->nilk, ['id'=>'nilk', 'class'=>'form-control', 'placeholder'=>'NIK']) !!}
         @if ($errors->has('nilk'))
             <span class="help-block">
                 <small><strong>{{ $errors->first('nilk') }}</strong></small>

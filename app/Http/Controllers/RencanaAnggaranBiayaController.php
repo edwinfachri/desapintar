@@ -21,7 +21,7 @@ class RencanaAnggaranBiayaController extends Controller
 {
   public function __construct() {
     $this->middleware('auth');
-    $this->title = 'Buku Rencana Anggaran Biaya';
+    $this->title = 'Laporan Rencana Anggaran Biaya';
   }
 
   public function Index(Request $request) {

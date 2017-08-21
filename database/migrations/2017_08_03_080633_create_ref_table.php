@@ -15,8 +15,8 @@ class CreateRefTable extends Migration
     {
         Schema::create('ref', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('refid');
-          $table->integer('refno');
+          $table->string('refid', 5);
+          $table->string('refno', 5);
           $table->string('reftext');
         });
     }

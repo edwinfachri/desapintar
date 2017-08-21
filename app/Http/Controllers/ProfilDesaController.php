@@ -12,6 +12,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\ProfilDesa;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class ProfilDesaController extends Controller
 {
@@ -21,27 +22,7 @@ class ProfilDesaController extends Controller
     }
 
     public function Store(Request $request) {
-      $this->validate($request, [
-          'logo' => 'required|image',
-          'kepala_desa' => 'required',
-          'sekretaris_desa' => 'nullable',
-          'provinsi' => 'required',
-          'kota' => 'required',
-          'kecamatan' => 'required',
-          'desa' => 'required',
-          'alamat' => 'required',
-          'kode_pos' => 'required|digits:5',
-          'telp' => 'required|digits_between:6,15',
-          'fax' => 'nullable|digits_between:6,15',
-          'email' => 'nullable|email',
-          'website' => 'nullable|url',
-      ], [
-          'required' => 'Kolom :attribute wajib diisi.',
-          'digits' => 'Kolom :attribute diisi dengan 5 karakter numerik.',
-          'digits_between' => 'Kolom :attribute diisi dengan 6 hingga 15 karakter numerik.',
-          'email' => 'Kolom :attribute diisi dengan format surel. Contoh: email@google.com',
-          'url' => 'Kolom :attribute diisi dengan format URL. Contoh: www.google.com.',
-      ]);
+      $this->validator($request->all())->validate();
       $profil_desa = new ProfilDesa;
       if( $request->hasFile('logo')) {
           $image = $request->file('logo');
@@ -103,27 +84,7 @@ class ProfilDesaController extends Controller
     }
 
     public function Update(Request $request) {
-      $this->validate($request, [
-          'logo' => 'nullable|image',
-          'kepala_desa' => 'required',
-          'sekretaris_desa' => 'nullable',
-          'provinsi' => 'required',
-          'kota' => 'required',
-          'kecamatan' => 'required',
-          'desa' => 'required',
-          'alamat' => 'required',
-          'kode_pos' => 'required|digits:5',
-          'telp' => 'required|digits_between:6,15',
-          'fax' => 'nullable|digits_between:6,15',
-          'email' => 'nullable|email',
-          'website' => 'nullable|url',
-      ], [
-          'required' => 'Kolom :attribute wajib diisi.',
-          'digits' => 'Kolom :attribute diisi dengan 5 karakter numerik.',
-          'digits_between' => 'Kolom :attribute diisi dengan 6 hingga 15 karakter numerik.',
-          'email' => 'Kolom :attribute diisi dengan format surel. Contoh: email@google.com.',
-          'url' => 'Kolom :attribute diisi dengan format URL. Contoh: www.google.com.',
-      ]);
+      $this->validator($request->all())->validate();
       $result = ProfilDesa::first()->update($request->all());
       if( $request->hasFile('logo')) {
           $image = $request->file('logo');
@@ -147,5 +108,30 @@ class ProfilDesaController extends Controller
         Session::flash('alert-danger', 'Data Gagal Diubah');
         return redirect('profil_desa');
       }
+    }
+
+    protected function validator(array $profil_desa)
+    {
+        return Validator::make($profil_desa, [
+            'logo' => 'nullable|image',
+            'kepala_desa' => 'required',
+            'sekretaris_desa' => 'nullable',
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'kecamatan' => 'required',
+            'desa' => 'required',
+            'alamat' => 'required',
+            'kode_pos' => 'required|digits:5',
+            'telp' => 'required|digits_between:6,15',
+            'fax' => 'nullable|digits_between:6,15',
+            'email' => 'nullable|email',
+            'website' => 'nullable',
+        ], [
+            'required' => 'Kolom :attribute wajib diisi.',
+            'digits' => 'Kolom :attribute diisi dengan 5 karakter numerik.',
+            'digits_between' => 'Kolom :attribute diisi dengan 6 hingga 15 karakter numerik.',
+            'email' => 'Kolom :attribute diisi dengan format surel. Contoh: email@google.com.',
+            'url' => 'Kolom :attribute diisi dengan format URL. Contoh: www.google.com.',
+        ]);
     }
 }

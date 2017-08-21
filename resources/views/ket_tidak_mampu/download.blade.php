@@ -34,44 +34,7 @@
               <div class="container-fluid">
                   <div class="row">
                       <div class="container">
-                        <div class="row letter-head-pdf">
-                          <img class="col-md-6" src="{{ asset('/images/uploads/'.$profil_desa->logo) }}"
-                              style="max-width: 100px; max-height: 100px; position: absolute;">
-                          <div class="col-md-6">
-                            <div class="row">
-                              <div class="col-md-4">
-                              </div>
-                              <h3 class="col-md-8 text-center">
-                                PEMERINTAH KABUPATEN {{ strtoupper($profil_desa->kota) }}
-                              </h3>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                              </div>
-                              <h4 class="col-md-8 text-center">
-                                KECAMATAN {{ strtoupper($profil_desa->kecamatan) }}
-                              </h4>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                              </div>
-                              <h4 class="col-md-8 text-center">
-                                DESA {{ strtoupper($profil_desa->desa) }}
-                              </h4>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                              </div>
-                              <p class="col-md-8 text-center">
-                                <?php   echo "Alamat ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->alamat)))
-                                           . ". Desa ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->desa)))
-                                           . ". Kecamatan ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kecamatan)))
-                                           . ". Kabupaten ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kota)))
-                                           . ". Kode Pos ".$profil_desa->kode_pos."."?>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                        @include('layouts.letter_header_download')
                         <br />
                         <div class="letter-body">
                           <div class="row text">
@@ -104,7 +67,7 @@
                                   &nbsp;
                                 </div>
                                 <div class="col-md-3 col-xs-3 col-lg-3 text-left">
-                                  <p>NILK</p>
+                                  <p>NIK</p>
                                 </div>
                                 <div class="col-md-1 col-xs-1 col-lg-1">
                                   <p>:</p>
@@ -259,7 +222,7 @@
                                            . " Kecamatan ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kecamatan)))
                                            . " Kabupaten ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kota)))
                                            ;?>
-                                dengan ini menerangkan bahwa.
+                                dengan ini menerangkan bahwa, nama yg tersebut di atas benar - benar tidak mampu.
                               </p>
                               <p>
                                 Demikian surat keterangan ini untuk dipergunakan sebagaimana mestinya.

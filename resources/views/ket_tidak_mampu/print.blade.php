@@ -29,7 +29,7 @@
     <div id="wrapper">
       <!-- Page Content -->
           <div class="container-fluid">
-            @include('layouts.letter_header')
+            @include('layouts.letter_header_print')
 
             <div style="font-family: serif; left: 7%;">
               <div class="row text">
@@ -62,7 +62,7 @@
                       &nbsp;
                     </div>
                     <div class="col-md-3 col-xs-3 col-lg-3 text-left">
-                      <p>NILK</p>
+                      <p>NIK</p>
                     </div>
                     <div class="col-md-1 col-xs-1 col-lg-1">
                       <p>:</p>
@@ -217,7 +217,7 @@
                                . " Kecamatan ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kecamatan)))
                                . " Kabupaten ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kota)))
                                ;?>
-                    dengan ini menerangkan bahwa.
+                    dengan ini menerangkan bahwa, nama yg tersebut di atas benar - benar tidak mampu.
                   </p>
                   <p>
                     Demikian surat keterangan ini untuk dipergunakan sebagaimana mestinya.

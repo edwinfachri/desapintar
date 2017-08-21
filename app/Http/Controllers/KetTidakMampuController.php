@@ -178,7 +178,7 @@ class KetTidakMampuController extends Controller
     $textrun->addText('    Nama                         : ');
     $textrun->addText($ket_tidak_mampu->nama);
     $textrun = $section->addTextRun();
-    $textrun->addText('    NILK                         : ');
+    $textrun->addText('    NIK                          : ');
     $textrun->addText($ket_tidak_mampu->nilk);
     $textrun = $section->addTextRun();
     $textrun->addText('    Tempat Lahir             : ');
@@ -214,7 +214,7 @@ class KetTidakMampuController extends Controller
     $textrun->addText($ket_tidak_mampu->masa_berlaku_end);
     $section->addTextBreak(1);
     $textrun = $section->addTextRun();
-    $section->addText('Adalah benar nama tersebut diatas penduduk Desa Suka Mulya Kecamatan Batu Ceper Kabupaten Banten dengan ini menerangkan bahwa $$.');
+    $section->addText('Adalah benar nama tersebut diatas penduduk Desa Suka Mulya Kecamatan Batu Ceper Kabupaten Banten dengan ini menerangkan bahwa, nama yg tersebut di atas benar-benar tidak mampu.');
     $section->addText('Demikian surat keterangan ini untuk dipergunakan sebagaimana mestinya.');
     $phpWord->setDefaultFontName('Times New Roman');
     $phpWord->setDefaultFontSize(12);

@@ -33,13 +33,13 @@
           &nbsp;
         </div>
         <div class="col-md-3 col-xs-3 col-lg-3 text-left">
-          {!! Form::label('nilk', 'NILK', ['class'=>'control-label']) !!}
+          {!! Form::label('nilk', 'NIK', ['class'=>'control-label']) !!}
         </div>
         <div class="col-md-1 col-xs-1 col-lg-1">
           {!! Form::label('', ':', ['class'=>'control-label']) !!}
         </div>
         <div class="col-md-7 col-xs-7 col-lg-7">
-          {!! Form::label('nilk', $data->nilk, ['id'=>'nilk', 'class'=>'control-label', 'placeholder'=>'NILK']) !!}
+          {!! Form::label('nilk', $data->nilk, ['id'=>'nilk', 'class'=>'control-label', 'placeholder'=>'NIK']) !!}
         </div>
       </div>
       <div class="form-group">
@@ -190,7 +190,7 @@
                    . " Kecamatan ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kecamatan)))
                    . " Kabupaten ".preg_replace('/(?!^)[A-Z]{2,}(?=[A-Z][a-z])|[A-Z][a-z]/', ' $0', ucfirst(camel_case($profil_desa->kota)))
                    ;?>
-        dengan ini menerangkan bahwa $$.
+        dengan ini menerangkan bahwa, nama yg tersebut di atas benar - benar tidak mampu.
       </p>
       <p>
         Demikian surat keterangan ini untuk dipergunakan sebagaimana mestinya.

@@ -1,5 +1,5 @@
 <div class="row" style="border-bottom: 1px solid black;">
-  <div class="col-xs-2 col-md-2  col-sm-2" style="left: 5%;">
+  <div class="col-xs-2 col-md-2  col-sm-2" style="left: 0%;">
     <img src="{{ url('/images/uploads/'.$profil_desa->logo) }}" >
   </div>
   <div class="col-xs-8 col-md-8 col-sm-8 letter-head-print" style="font-family: serif; left: 7%;">
