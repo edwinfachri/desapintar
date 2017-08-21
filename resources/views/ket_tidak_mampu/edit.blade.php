@@ -90,7 +90,11 @@
         {!! Form::label('kelamin', 'Kelamin', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">
+<<<<<<< HEAD
         {!! Form::text('kelamin', $data->kelamin, ['id'=>'kelamin', 'class'=>'form-control', 'placeholder'=>'Kelamin']) !!}
+=======
+        {!! Form::select('kelamin', Helper::generateArray("ref","refno","reftext"," refid='1' order by refno"), $data->kelamin, ['id'=>'kelamin', 'class'=>'form-control']) !!}
+>>>>>>> 8d1188fc8079acedeeebf843415cab11cc2bfb50
         @if ($errors->has('kelamin'))
             <span class="help-block">
                 <small><strong>{{ $errors->first('kelamin') }}</strong></small>
@@ -116,7 +120,11 @@
         {!! Form::label('agama', 'Agama', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">
+<<<<<<< HEAD
         {!! Form::text('agama', $data->agama, ['id'=>'agama', 'class'=>'form-control', 'placeholder'=>'Agama']) !!}
+=======
+        {!! Form::select('agama', Helper::generateArray("ref","refno","reftext"," refid='2' order by refno"), $data->agama, ['id'=>'agama', 'class'=>'form-control']) !!}
+>>>>>>> 8d1188fc8079acedeeebf843415cab11cc2bfb50
         @if ($errors->has('agama'))
             <span class="help-block">
                 <small><strong>{{ $errors->first('agama') }}</strong></small>
