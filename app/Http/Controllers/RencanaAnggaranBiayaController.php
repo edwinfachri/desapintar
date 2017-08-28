@@ -184,8 +184,8 @@ class RencanaAnggaranBiayaController extends Controller
   }
 
   public function getExcel($buku_rencana_anggaran_biaya_id) {
-    return Excel::create('Filename', function($excel) use($buku_rencana_anggaran_biaya_id){
-        $excel->sheet('Sheetname', function($sheet) use($buku_rencana_anggaran_biaya_id){
+    return Excel::create('rencana_anggaran_biaya', function($excel) use($buku_rencana_anggaran_biaya_id){
+        $excel->sheet('rencana_anggaran_biaya', function($sheet) use($buku_rencana_anggaran_biaya_id){
           $sheet->setStyle(array(
           'font' => array(
               'name'      =>  'Calibri',

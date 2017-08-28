@@ -22,6 +22,11 @@ Route::get('/login', function () {
     return view('layouts/login');
 });
 
+Route::get('transaksi_bank/{id}/view', 'TransaksiBankController@View');
+Route::resource('transaksi_bank', 'TransaksiBankController');
+
+Route::get('transaksi_tunai/{id}/view', 'TransaksiTunaiController@View');
+Route::resource('transaksi_tunai', 'TransaksiTunaiController');
 
 Route::resource('induk_penduduk', 'IndukPendudukController');
 Route::get('induk_penduduk/{id}/download', 'IndukPendudukController@getDownload');

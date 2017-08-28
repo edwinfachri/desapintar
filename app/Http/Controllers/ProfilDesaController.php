@@ -66,7 +66,7 @@ class ProfilDesaController extends Controller
       //     Image::make($file->getRealPath())->resize(200, 200)->save('/public/images/uploads/'.$imageName);
       // }
 
-      Session::flash('alert-success', 'Data Berhasil Dimasukan');
+      Session::flash('success_message', 'Data Berhasil Dimasukan');
       return redirect('profil_desa');
     }
 
@@ -102,10 +102,10 @@ class ProfilDesaController extends Controller
         }
 
       if ($result) {
-        Session::flash('alert-success', 'Data Berhasil Diubah');
+        Session::flash('success_message', 'Data Berhasil Diubah');
         return redirect('profil_desa');
       } else {
-        Session::flash('alert-danger', 'Data Gagal Diubah');
+        Session::flash('failed_message', 'Data Gagal Diubah');
         return redirect('profil_desa');
       }
     }
