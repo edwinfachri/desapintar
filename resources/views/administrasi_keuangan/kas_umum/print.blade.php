@@ -41,46 +41,40 @@
 
                     <div class="row">
                       <h1 class="col-xs-12 col-md-12 col-sm-12 text-center">{{ $title }}</h1>
-                      <h3 class="col-xs-12 col-md-12 col-sm-12 text-center">Tahun {{ $buku_rencana_anggaran_biaya->tahun }}</h3>
-                      <div class="row">
-                        <p class="col-xs-3 col-md-3 col-sm-3"></p>
-                        <h5 class="col-xs-3 col-md-3 col-sm-3 text-left">1. Bidang</h5>
-                        <h5 class="col-xs-1 col-md-1 col-sm-1 text-center">:</h5>
-                        <h5 class="col-xs-5 col-md-5 col-sm-5 text-left">{{ $buku_rencana_anggaran_biaya->bidang }}</h5>
-                      </div>
-                      <div class="row">
-                        <p class="col-xs-3 col-md-3 col-sm-3"></p>
-                        <h5 class="col-xs-3 col-md-3 col-sm-3 text-left">2. Kegiatan</h5>
-                        <h5 class="col-xs-1 col-md-1 col-sm-1 text-center">:</h5>
-                        <h5 class="col-xs-5 col-md-5 col-sm-5 text-left">{{ $buku_rencana_anggaran_biaya->kegiatan }}</h5>
-                      </div>
-                      <div class="row">
-                        <p class="col-xs-3 col-md-3 col-sm-3"></p>
-                        <h5 class="col-xs-3 col-md-3 col-sm-3 text-left">3. Waktu Pelaksanaan</h5>
-                        <h5 class="col-xs-1 col-md-1 col-sm-1 text-center">:</h5>
-                        <h5 class="col-xs-5 col-md-5 col-sm-5 text-left">{{ date('d-m-Y', strtotime($buku_rencana_anggaran_biaya->waktu_pelaksanaan)) }}</h5>
-                      </div>
+                      <h3 class="col-xs-12 col-md-12 col-sm-12 text-center">Tahun {{ substr($data[0]->tg_trans,0,4) }}</h3>
                     </div>
 
                     <br /> <br />
 
                     <div class="">
-                      <table class="table">
+                      <table class="table-responsive">
                         <tr>
                           <td>
-                            No
+                            <h5>No</h5>
                           </td>
                           <td>
-                            Uraian
+                            <h5>Tanggal</h5>
                           </td>
                           <td>
-                            Volume
+                            <h5>Kode Rekening</h5>
                           </td>
                           <td>
-                            Harga Satuan
+                            <h5>Uraian</h5>
                           </td>
                           <td>
-                            Jumlah
+                            <h5>Penerimaan</h5>
+                          </td>
+                          <td>
+                            <h5>Pengeluaran</h5>
+                          </td>
+                          <td>
+                            <h5>No Bukti</h5>
+                          </td>
+                          <td>
+                            <h5>Jumlah Pengeluaran Komulatif</h5>
+                          </td>
+                          <td>
+                            <h5>Saldo</h5>
                           </td>
                         </tr>
                         <tr>
@@ -89,41 +83,56 @@
                           <td>3</td>
                           <td>4</td>
                           <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                          <td>8</td>
+                          <td>9</td>
                         </tr>
+                        <?php $kumulatif=0 ?>
                         @foreach ($data as $index => $datum)
                           <tr>
                             <td>
                               {{ $index+1 }}
                             </td>
                             <td>
+                              {{ $datum->tg_trans }}
+                            </td>
+                            <td>
+                              {{ $datum->kd_rek }}
+                            </td>
+                            <td>
                               {{ $datum->uraian }}
                             </td>
+                            @if (substr($datum->kd_rek,0,1)==1)
                             <td>
-                              {{ $datum->volume }}
+                              {{ $datum->harga * $datum->volume }}
                             </td>
                             <td>
-                              Rp. {{ number_format( $datum->harga_satuan , 0 , '.' , ',' ) }}
+                              &nbsp;
+                            </td>
+                            @endif
+                            @if (substr($datum->kd_rek,0,1)==2)
+                            <td>
+                              &nbsp;
                             </td>
                             <td>
-                              Rp. {{ number_format( $datum->jumlah , 0 , '.' , ',' ) }}
+                              {{ $datum->harga * $datum->volume }}
+                            </td>
+                            @endif
+                            <td>
+                              {{ $datum->bukti }}
+                            </td>
+                            <td>
+                              <?php if (substr($datum->kd_rek,0,1)==2) {
+                                $kumulatif += $datum->harga * $datum->volume;
+                              } ?>
+                              {{ $kumulatif }}
+                            </td>
+                            <td>
+                              {{ $datum->saldo }}
                             </td>
                           </tr>
-                          <?php $grand_total += $datum->jumlah?>
                         @endforeach
-                        <tr>
-                          <td>
-                          </td>
-                          <td>
-                          </td>
-                          <td>
-                          </td>
-                          <td>
-                            Grand Total
-                          </td>
-                          <td>
-                            Rp. {{ number_format( $grand_total , 0 , '.' , ',' ) }}
-                          </td>
-                        </tr>
                       </table>
 
                       <br /> <br />
@@ -137,7 +146,7 @@
                           Mengetahui
                         </div>
                         <div class="col-xs-6 col-md-6 col-sm-6 text-left">
-                          {{ date('d-m-Y', strtotime($buku_rencana_anggaran_biaya->updated_at)) }}
+                          {{ date('d-m-Y', strtotime($data[0]->updated_at)) }}
                         </div>
                         <!-- <div class="col-md-1">
                         </div> -->

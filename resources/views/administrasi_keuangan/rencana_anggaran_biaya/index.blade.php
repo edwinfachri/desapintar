@@ -31,7 +31,7 @@
 <hr>
 
 <div class="table-responsive">
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
       <td class="text-center">
         No
@@ -66,46 +66,31 @@
             {{ $index+1 }}
           </td>
           <td class="text-center">
-            {{ $datum->tahun }}
+            {{ substr($datum->tg_trans,0,4) }}
           </td>
           <td class="text-center">
-            {{ $datum->waktu_pelaksanaan }}
+            {{ $datum->tg_trans }}
           </td>
           <td class="text-center">
-            {{ $datum->bidang }}
+            {{ Helper::generateReftext('99999',substr($datum->kd_rek,0,2)) }}
           </td>
           <td class="text-center">
-            {{ $datum->kegiatan }}
+            {{ Helper::generateReftext('99999',substr($datum->kd_rek,0,3)) }}
           </td>
           <td>
 
             <div class="form-inline pull-right">
+              <div class="form-group">
+                <a class="btn btn-default btn-default" href="{{ url('rencana_anggaran_biaya/'.$datum->kd_rek.'/view') }}" role="button">Lihat</a>
+              </div>
                <div class="form-group">
-                 <a class="btn btn-default btn-info" href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/members') }}" role="button">Tulis di Buku</a>
+                 <a class="btn btn-default btn-info" href="{{ url('rencana_anggaran_biaya/'.$datum->kd_rek.'/download') }}" role="button">Unduh PDF</a>
                </div>
                <div class="form-group">
-                 <a class="btn btn-default btn-success" href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/edit') }}" role="button">Sunting Buku</a>
+                 <a class="btn btn-default btn-success" href="{{ url('rencana_anggaran_biaya/'.$datum->kd_rek.'/excel') }}" role="button">Unduh Excel</a>
                </div>
                <div class="form-group">
-                 {{ Form::open(array('url' => 'rencana_anggaran_biaya/' . $datum->id, 'class'=>'delete')) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Hapus Buku', array('class' => 'btn btn-danger')) }}
-                 {{ Form::close() }}
-               </div>
-               <!-- <div class="">
-                 <a class="btn btn-default btn-warning col-md-2 col-xs-2 col-lg-2" href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/download') }}" role="button">Unduh</a>
-               </div>
-               <div class="">
-                 <a class="btn btn-default btn-primary col-md-4 col-xs-4 col-lg-4" href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/print') }}" target="_blank" role="button">Cetak</a>
-               </div> -->
-               <div class="dropdown form-group dropdown-unduh">
-                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="">Operasi
-                 <span class="caret"></span></button>
-                 <ul class="dropdown-menu">
-                   <li><a href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/download') }}">Unduh PDF</a></li>
-                   <li><a href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/excel') }}" target="_blank">Unduh Excel</a></li>
-                   <li><a href="{{ url('rencana_anggaran_biaya/'.$datum->id.'/print') }}" target="_blank">Cetak</a></li>
-                 </ul>
+                 <a class="btn btn-default btn-warning" href="{{ url('rencana_anggaran_biaya/'.$datum->kd_rek.'/print') }}" role="button" target="_blank">Cetak</a>
                </div>
             </div>
           </td>

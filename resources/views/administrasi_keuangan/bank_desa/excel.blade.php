@@ -35,87 +35,145 @@
 </tr>
 <tr>
   <td></td>
-  <td colspan='4' style="text-align:center;">Tahun {{ $buku_rencana_anggaran_biaya->tahun }}</td>
+  <td colspan='4' style="text-align:center;">Tahun {{ substr($data[0]->tg_trans,0,4) }}</td>
   <td></td>
 </tr>
 <tr>
   <td></td>
   <td>1. Bidang</td>
   <td>:</td>
-  <td>{{ $buku_rencana_anggaran_biaya->bidang }}</td>
+  <td>{{ Helper::generateReftext('99999',substr($data[0]->kd_rek,0,2)) }}</td>
   <td></td>
 </tr>
 <tr>
   <td></td>
   <td>2. Kegiatan</td>
   <td>:</td>
-  <td>{{ $buku_rencana_anggaran_biaya->kegiatan }}</td>
+  <td>{{ Helper::generateReftext('99999',substr($data[0]->kd_rek,0,3)) }}</td>
   <td></td>
 </tr>
 <tr>
   <td></td>
   <td>3. Waktu Pelaksanaan</td>
   <td>:</td>
-  <td>{{ date('d-m-Y', strtotime($buku_rencana_anggaran_biaya->waktu_pelaksanaan)) }}</td>
+  <td>{{ date('d-m-Y', strtotime($data[0]->tg_trans)) }}</td>
   <td></td>
 </tr>
 <tr>
 </tr>
 <tr>
-  <td>No</td>
-  <td>Uraian</td>
-  <td>Volume</td>
-  <td>Harga Satuan</td>
-  <td>Jumlah</td>
+  <td colspan="1" rowspan="2">
+    No
+  </td>
+  <td colspan="1" rowspan="2">
+    Tanggal Transaksi
+  </td>
+  <td colspan="1" rowspan="2">
+    Uraian Transaksi
+  </td>
+  <td colspan="1" rowspan="2">
+    Bukti Transaksi
+  </td>
+  <td colspan="2">
+    Pemasukan
+  </td>
+  <td colspan="3">
+    Pengeluaran
+  </td>
+  <td colspan="1" rowspan="2">
+    Saldo
+  </td>
 </tr>
 <tr>
+  <td colspan="1">
+    Setoran
+  </td>
+  <td colspan="1">
+    Bunga Bank
+  </td>
+  <td colspan="1">
+    Penarikan
+  </td>
+  <td colspan="1">
+    Pajak
+  </td>
+  <td colspan="1">
+    Biaya Administrasi
+  </td>
+</tr>          <tr>
   <td>1</td>
   <td>2</td>
   <td>3</td>
   <td>4</td>
-  <td></td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td>9</td>
+  <td>10</td>
 </tr>
+<?php $kumulatif=0 ?>
 @foreach ($data as $index => $datum)
+<?php
+  $setoran = "";
+  $bunga = "";
+  $penarikan = "";
+  $pajak = "";
+  $biaya_adm = "" ;
+  switch($datum->jenis_transaksi) {
+    case 1:
+      $setoran = $datum->harga;
+    break;
+    case 2:
+      $penarikan = $datum->harga;
+    break;
+    case 3:
+      $pajak = $datum->harga;
+    break;
+    case 4:
+      $bunga = $datum->harga;
+    break;
+  }
+?>
   <tr>
     <td>
       {{ $index+1 }}
     </td>
     <td>
+      {{ $datum->tg_trans }}
+    </td>
+    <td>
       {{ $datum->uraian }}
     </td>
     <td>
-      {{ $datum->volume }}
+      {{ $datum->bukti }}
     </td>
     <td>
-      Rp. {{ number_format( $datum->harga_satuan , 0 , '.' , ',' ) }}
+      {{ $setoran }}
     </td>
     <td>
-      Rp. {{ number_format( $datum->jumlah , 0 , '.' , ',' ) }}
+      {{ $bunga }}
+    </td>
+    <td>
+      {{ $penarikan }}
+    </td>
+    <td>
+      {{ $pajak }}
+    </td>
+    <td>
+      {{ $datum->biaya_adm }}
+    </td>
+    <td>
+      {{ $datum->saldo }}
     </td>
   </tr>
-  <?php $grand_total += $datum->jumlah?>
 @endforeach
-<tr>
-  <td>
-  </td>
-  <td>
-  </td>
-  <td>
-  </td>
-  <td>
-    Grand Total
-  </td>
-  <td>
-    Rp. {{ number_format( $grand_total , 0 , '.' , ',' ) }}
-  </td>
-</tr>
-<tr>
   <td></td>
 </tr>
 <tr>
   <td></td>
   <td colspan='2' style="text-align:center;">Mengetahui</td>
-  <td colspan='2' style="text-align:center;">{{ date('d-m-Y', strtotime($buku_rencana_anggaran_biaya->updated_at)) }}</td>
+  <td colspan='2' style="text-align:center;">{{ date('d-m-Y', strtotime($data[0]->updated_at)) }}</td>
 </tr>
 <tr>
   <td></td>

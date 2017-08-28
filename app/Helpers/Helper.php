@@ -18,9 +18,9 @@ class Helper
 		}
 		return $ret;
 	}
-	
-	public static function generateReftext($refidx="",$refno=""){
-		$retu=DB::table('ref')->where('refidx',$refidx)->where('refno',$refno)->value('reftext');
+
+	public static function generateReftext($refid="",$refno=""){
+		$retu=DB::table('ref')->where('refid',$refid)->where('refno',$refno)->value('reftext');
 		if ($retu == "") {
 			return "-";
 		}

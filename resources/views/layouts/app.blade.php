@@ -152,22 +152,33 @@
                             <a href="#">Administrasi Keuangan Desa<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Anggaran Pendapatan dan Belanja Desa</a>
+                                    <a href="{{url('/transaksi_tunai')}}">Transaksi Tunai Desa</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/rencana_anggaran_biaya?tahun=&bidang=&kegiatan=&waktu_pelaksanaan=')}}">Rencana Anggaran Biaya</a>
+                                    <a href="{{url('/transaksi_bank')}}">Transaksi Perbankan Desa</a>
                                 </li>
                                 <li>
-                                    <a href="#">Kas Pembantu Kegiatan</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kas Umum</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kas Pembantu</a>
-                                </li>
-                                <li>
-                                    <a href="#">Bank Desa</a>
+                                    <a href="#">Report<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Anggaran Pendapatan dan Belanja Desa</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('/rencana_anggaran_biaya')}}">Rencana Anggaran Biaya</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kas Pembantu Kegiatan</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('/kas_umum')}}">Kas Umum</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kas Pembantu</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('/bank_desa')}}">Bank Desa</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

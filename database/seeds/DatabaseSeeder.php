@@ -22,8 +22,10 @@ class RefTableSeeder extends Seeder {
         DB::table('ref')->truncate();
 
         DB::table('ref')->insert([
+          // Jenis Kelamin
           ['refid' => '1','refno' => '1','reftext' => 'Laki-laki'],
           ['refid' => '1','refno' => '2','reftext' => 'Perempuan'],
+          // Agama
           ['refid' => '2','refno' => '1','reftext' => 'Islam'],
           ['refid' => '2','refno' => '2','reftext' => 'Katolik'],
           ['refid' => '2','refno' => '3','reftext' => 'Protestan'],
@@ -31,6 +33,20 @@ class RefTableSeeder extends Seeder {
           ['refid' => '2','refno' => '5','reftext' => 'Budha'],
           ['refid' => '2','refno' => '6','reftext' => 'Konghucu'],
           ['refid' => '2','refno' => '7','reftext' => 'Lainnya'],
+          // Jenis Dana pada Tabel transaksi_tunai
+          ['refid' => '3','refno' => '1','reftext' => 'Bendahara (KAS)'],
+          ['refid' => '3','refno' => '2','reftext' => 'Masyarakat (Swadaya)'],
+          ['refid' => '3','refno' => '3','reftext' => 'Pajak'],
+          ['refid' => '3','refno' => '4','reftext' => 'Retribusi'],
+          // Jenis Transaksi pada Tabel transaksi_bank
+          ['refid' => '4','refno' => '1','reftext' => 'Setor Tunai'],
+          ['refid' => '4','refno' => '2','reftext' => 'Tarik Dana'],
+          ['refid' => '4','refno' => '3','reftext' => 'Pembayaran Pajak'],
+          ['refid' => '4','refno' => '4','reftext' => 'Penerimaan Bunga'],
+          // Jenis Transaksi pada Tabel transaksi_bukti
+          ['refid' => '5','refno' => '1','reftext' => 'Transaksi Perbankan'],
+          ['refid' => '5','refno' => '2','reftext' => 'Transaksi Tunai'],
+          // Kode Rekening
           ['refid' => '99999','refno' => '1','reftext' => 'PENDAPATAN'],
           ['refid' => '99999','refno' => '11','reftext' => 'Pendapatan Asli Desa'],
           ['refid' => '99999','refno' => '111','reftext' => 'Hasil Usaha'],

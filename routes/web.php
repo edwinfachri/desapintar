@@ -22,21 +22,33 @@ Route::get('/login', function () {
     return view('layouts/login');
 });
 
+Route::get('transaksi_bank/{id}/view', 'TransaksiBankController@View');
+Route::resource('transaksi_bank', 'TransaksiBankController');
+
+Route::get('transaksi_tunai/{id}/view', 'TransaksiTunaiController@View');
+Route::resource('transaksi_tunai', 'TransaksiTunaiController');
 
 Route::resource('induk_penduduk', 'IndukPendudukController');
 Route::get('induk_penduduk/{id}/download', 'IndukPendudukController@getDownload');
 
-Route::get('rencana_anggaran_biaya/filter', 'RencanaAnggaranBiayaController@getFilter');
+Route::get('rencana_anggaran_biaya/{id}/view', 'RencanaAnggaranBiayaController@getView');
 Route::get('rencana_anggaran_biaya/{id}/download', 'RencanaAnggaranBiayaController@getDownload');
-Route::get('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/print', 'RencanaAnggaranBiayaController@getPrint');
-Route::get('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/excel', 'RencanaAnggaranBiayaController@getExcel');
-Route::get('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/members', 'RencanaAnggaranBiayaController@memberIndex')->name('rencana_anggaran_biaya.member_index');
-Route::get('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/members/create', 'RencanaAnggaranBiayaController@memberCreate');
-Route::post('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/members/create', 'RencanaAnggaranBiayaController@memberStore');
-Route::get('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/members/{rencana_anggaran_biaya_id}/edit', 'RencanaAnggaranBiayaController@memberEdit');
-Route::put('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/members/{rencana_anggaran_biaya_id}/edit', 'RencanaAnggaranBiayaController@memberUpdate')->name('rencana_anggaran_biaya.member_edit');
-Route::delete('rencana_anggaran_biaya/{buku_rencana_anggaran_biaya_id}/members/{rencana_anggaran_biaya_id}', 'RencanaAnggaranBiayaController@memberDestroy');
+Route::get('rencana_anggaran_biaya/{id}/print', 'RencanaAnggaranBiayaController@getPrint');
+Route::get('rencana_anggaran_biaya/{id}/excel', 'RencanaAnggaranBiayaController@getExcel');
 Route::resource('rencana_anggaran_biaya', 'RencanaAnggaranBiayaController');
+
+Route::get('kas_umum/{id}/view', 'KasUmumController@getView');
+Route::get('kas_umum/{id}/download', 'KasUmumController@getDownload');
+Route::get('kas_umum/{id}/print', 'KasUmumController@getPrint');
+Route::get('kas_umum/{id}/excel', 'KasUmumController@getExcel');
+Route::resource('kas_umum', 'KasUmumController');
+
+Route::get('bank_desa/{id}/view', 'BankDesaController@getView');
+Route::get('bank_desa/{id}/download', 'BankDesaController@getDownload');
+Route::get('bank_desa/{id}/print', 'BankDesaController@getPrint');
+Route::get('bank_desa/{id}/excel', 'BankDesaController@getExcel');
+Route::resource('bank_desa', 'BankDesaController');
+
 
 Route::get('ket_tidak_mampu/{id}/view', 'KetTidakMampuController@getView');
 Route::get('ket_tidak_mampu/{id}/print', 'KetTidakMampuController@getPrint');
