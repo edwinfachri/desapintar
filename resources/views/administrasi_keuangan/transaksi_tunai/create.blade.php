@@ -72,7 +72,11 @@
         {!! Form::label('volume', 'Volume', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">
+<<<<<<< HEAD
         {!! Form::number('volume', 1, ['id'=>'volume', 'class'=>'form-control', 'placeholder'=>'Volume']) !!}
+=======
+        {!! Form::number('volume', '', ['id'=>'volume', 'class'=>'form-control', 'placeholder'=>'Volume']) !!}
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
         @if ($errors->has('volume'))
             <span class="help-block">
                 <small><strong>{{ $errors->first('volume') }}</strong></small>

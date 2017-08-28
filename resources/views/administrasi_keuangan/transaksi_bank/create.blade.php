@@ -95,6 +95,22 @@
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-3 col-lg-3">
+<<<<<<< HEAD
+=======
+        {!! Form::label('biaya_adm', 'Biaya Administrasi', ['class'=>'control-label']) !!}
+      </div>
+      <div class="col-md-9 col-xs-9 col-lg-9">
+        {!! Form::number('biaya_adm', '', ['id'=>'volume', 'class'=>'form-control', 'placeholder'=>'Volume']) !!}
+        @if ($errors->has('biaya_adm'))
+            <span class="help-block">
+                <small><strong>{{ $errors->first('biaya_adm') }}</strong></small>
+            </span>
+        @endif
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-3 col-xs-3 col-lg-3">
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
         {!! Form::label('ket', 'Keterangan', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">

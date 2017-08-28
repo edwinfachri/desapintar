@@ -62,9 +62,15 @@ class RencanaAnggaranBiayaController extends Controller
       'profil_desa'=>$this->profil_desa]);
   }
 
+<<<<<<< HEAD
   public function getExcel($id) {
     return Excel::create('rencana_anggaran_biaya', function($excel) use($id){
         $excel->sheet('data', function($sheet) use($id){
+=======
+  public function getExcel($buku_rencana_anggaran_biaya_id) {
+    return Excel::create('rencana_anggaran_biaya', function($excel) use($buku_rencana_anggaran_biaya_id){
+        $excel->sheet('rencana_anggaran_biaya', function($sheet) use($buku_rencana_anggaran_biaya_id){
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
           $sheet->setStyle(array(
           'font' => array(
               'name'      =>  'Calibri',

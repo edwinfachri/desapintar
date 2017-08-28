@@ -8,6 +8,11 @@
 
 <hr />
 <?php
+<<<<<<< HEAD
+=======
+  $read = '';
+  header("Content-type: image/jpeg");
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
 ?>
 <div class="row">
   {{ Form::model($data, array('route' => array('transaksi_bank.update', $data->id), 'method' => 'PUT', 'files'=>true)) }}
@@ -54,6 +59,22 @@
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-3 col-lg-3">
+<<<<<<< HEAD
+=======
+        {!! Form::label('volume', 'Volume', ['class'=>'control-label']) !!}
+      </div>
+      <div class="col-md-9 col-xs-9 col-lg-9">
+        {!! Form::number('volume', $data->volume, ['id'=>'volume', 'class'=>'form-control', 'placeholder'=>'Volume']) !!}
+        @if ($errors->has('volume'))
+            <span class="help-block">
+                <small><strong>{{ $errors->first('volume') }}</strong></small>
+            </span>
+        @endif
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-3 col-xs-3 col-lg-3">
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
         {!! Form::label('jenis_transaksi', 'Jenis Dana', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">
@@ -70,7 +91,11 @@
         {!! Form::label('bukti', 'Upload Bukti', ['class'=>'control-label']) !!}
       </div>
       <div class="col-md-9 col-xs-9 col-lg-9">
+<<<<<<< HEAD
         {!! Form::file('bukti', '') !!}
+=======
+        {!! Form::file('bukti', $data->bukti) !!}
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
         @if ($errors->has('bukti'))
             <span class="help-block">
                 <small><strong>{{ $errors->first('bukti') }}</strong></small>

@@ -49,6 +49,10 @@ class TransaksiBankController extends Controller
       $transaksi_bank->tg_trans = Carbon::parse($request->get('tg_trans'))->format('Y/m/d');
       $transaksi_bank->uraian = $request->get('uraian');
       $transaksi_bank->harga = $request->get('harga');
+<<<<<<< HEAD
+=======
+      $transaksi_bank->volume = $request->get('volume');
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
       $transaksi_bank->jenis_transaksi = $request->get('jenis_transaksi');
       $transaksi_bank->bukti = $request['imagename'];
       $transaksi_bank->saldo = Null;
@@ -120,6 +124,10 @@ class TransaksiBankController extends Controller
             'tg_trans' => 'required',
             'uraian' => 'required',
             'harga' => 'required|integer',
+<<<<<<< HEAD
+=======
+            'volume' => 'required|integer',
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
             'jenis_transaksi' => 'required',
             'bukti' => 'nullable|image',
             'biaya_adm' => 'integer',

@@ -164,19 +164,31 @@
                                             <a href="#">Anggaran Pendapatan dan Belanja Desa</a>
                                         </li>
                                         <li>
+<<<<<<< HEAD
                                             <a href="{{url('/rencana_anggaran_biaya')}}">Rencana Anggaran Biaya</a>
+=======
+                                            <a href="{{url('/rencana_anggaran_biaya?tahun=&bidang=&kegiatan=&waktu_pelaksanaan=')}}">Rencana Anggaran Biaya</a>
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
                                         </li>
                                         <li>
                                             <a href="#">Kas Pembantu Kegiatan</a>
                                         </li>
                                         <li>
+<<<<<<< HEAD
                                             <a href="{{url('/kas_umum')}}">Kas Umum</a>
+=======
+                                            <a href="#">Kas Umum</a>
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
                                         </li>
                                         <li>
                                             <a href="#">Kas Pembantu</a>
                                         </li>
                                         <li>
+<<<<<<< HEAD
                                             <a href="{{url('/bank_desa')}}">Bank Desa</a>
+=======
+                                            <a href="#">Bank Desa</a>
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
                                         </li>
                                     </ul>
                                 </li>

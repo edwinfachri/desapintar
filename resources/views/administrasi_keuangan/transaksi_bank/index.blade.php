@@ -23,7 +23,11 @@
         <h4>Uraian</h4>
       </td>
       <td class="text-center">
+<<<<<<< HEAD
         <h4>Jumlah</h4>
+=======
+        <h4>Total Biaya</h4>
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
       </td>
       <td class="text-center">
         <h4>Jenis Transaksi</h4>
@@ -55,7 +59,11 @@
             {{ $datum->uraian }}
           </td>
           <td class="text-center">
+<<<<<<< HEAD
             Rp. {{ $datum->harga }}
+=======
+            Rp. {{ $datum->harga * $datum->volume }}
+>>>>>>> 369706428542cd386d4d4b5562afdf3db50512d7
           </td>
           <td class="text-center">
             {{ Helper::generateReftext('4',$datum->jenis_transaksi)}}
