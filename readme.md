@@ -75,8 +75,8 @@ Later..
 ## Authors
 
 * **Edwin Fachri** - *Initial work* - [edwinfachri](https://github.com/edwinfachri)
-* **Eva Utari** -*System Analyst*[evautaricl](https://github.com/evautaricl)
-* **Richard Simon** [richardsimonb](https://github.com/richardsimonb)
+* **Eva Utari** -*System Analyst* - [evautaricl](https://github.com/evautaricl)
+* **Richard Simon** - [richardsimonb](https://github.com/richardsimonb)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project
 
